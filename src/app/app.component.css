@@ -1,0 +1,22 @@
+.game-container {
+  border: 1px solid;
+  box-shadow: 1px 1px 1px 1px black;
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+.emote-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+.emote-image {
+  --image-size: 64px;
+
+  width: var(--image-size);
+  height: var(--image-size);
+}
+
+.emote-image[src=""] {
+  box-shadow: 1px 1px 1px 1px black;
+}
