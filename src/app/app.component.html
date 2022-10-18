@@ -1,18 +1,23 @@
 <div class="game-container">
-  <div class="running">
+  <div class="running" *ngIf="gameState == 'running'">
     <h1>
-      Encuentra las parejas <span [innerText]="pairsFound"></span>/<span [innerText]="emoteLocations.length"></span>
+      Encuentra las parejas <span [innerText]="pairsFound"></span>/<span [innerText]="pairsToFind"></span>
     </h1>
 
-    <div class="emote-container" *ngFor="let emoteButton of emoteButtons">
-      <div class="emote">
-        <!-- TODO: Add image for hidden -->
-        <img class="emote-image" [src]="emoteButton.wasClicked ? emoteButton.info.location : ''" alt="">
-      </div>
+    <div class="emote-container">
+      <button class="emote"
+              *ngFor="let emoteButton of emoteButtons"
+              (click)="imageClick(emoteButton)"
+              [disabled]="!areButtonsClickable">
+        <img class="emote-image"
+             draggable="false"
+             alt="Emote Button"
+             [src]="emoteButton.wasClicked ? emoteButton.info.location : defaultButtonCover">
+      </button>
     </div>
   </div>
 
-  <div class="status" *ngIf="gameState != 'running'">
-    <h1 [innerText]="'Has ' + (gameState == 'won' ? 'ganado' : 'perdido') + '! '"></h1>
+  <div class="status" *ngIf="gameState == 'won'">
+    <h1>Has ganado!</h1>
   </div>
 </div>

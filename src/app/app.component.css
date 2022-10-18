@@ -7,14 +7,19 @@
 
 .emote-container {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: repeat(4, 64px);
+  grid-gap: 1rem;
 }
 
-.emote-image {
-  --image-size: 64px;
+.emote {
+  background-color: transparent;
+  border-width: 0;
+}
 
-  width: var(--image-size);
-  height: var(--image-size);
+.emote-image,
+.emote {
+  width: 64px;
+  height: 64px;
 }
 
 .emote-image[src=""] {
